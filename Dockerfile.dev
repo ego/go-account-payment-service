@@ -1,0 +1,5 @@
+FROM golang:1.13.4
+
+COPY . /go/src/
+WORKDIR /go/src/src/
+RUN go install

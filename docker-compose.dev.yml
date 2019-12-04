@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+
+  pg:
+    command: ["postgres", "-c", "logging_collector=on", "-c", "log_statement=all"]
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+      args:
+          develop: 1
+    command: "go run main.go"
+    ports:
+      - "8888:8888"
